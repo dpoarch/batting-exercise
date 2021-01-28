@@ -286,8 +286,7 @@ function main($args) {
             'Batting Average' => number_format($battingAvg, 3)
         ]);
 
-        $prcnt = number_format(($rowCount / $total) * 100, 2);
-        echo "\rProcessing: {$prcnt}%";
+        echo "\rProcessing: {$rowCount}/{$total}";
         $rowCount++;
     }
 
