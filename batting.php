@@ -210,6 +210,7 @@ function main($args) {
         $filters['teamID'] = $options['team'];
     }
 
+    $start = microtime(true);
     $csv = new Csv($args[count($args) - 1]);
     // @note we will always assume there is a Teams.csv included
     $teams = new Csv(__DIR__ . '/Teams.csv');
@@ -294,6 +295,9 @@ function main($args) {
         $csv->close();
         $teams->close();
     }
+
+    $end = number_format(microtime(true) - $start, 2);
+    echo sprintf("\nExecution time: %s seconds\n", $end);
 }
 
 main($argv);
